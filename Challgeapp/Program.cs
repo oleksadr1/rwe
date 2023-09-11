@@ -1,74 +1,47 @@
-﻿using System;
-int number = 4566;
-string numberAsString =number. ToString();
-char[] charletters = numberAsString.ToCharArray();
+﻿using Challgeapp;
 
-int counter0 = 0;
-int counter1 = 0;
-int counter2 = 0; 
-int counter3 = 0;
-int counter4 = 0;
-int counter5 = 0;
-int counter6 = 0;
-int counter7 = 0;
-int counter8 = 0;
-int counter9 = 0;
-;
-foreach (char c in charletters)
+Employee employee1 = new Employee("Jan", "Sam", 33);
+Employee employee2 = new Employee("Damian", "Sam", 34);
+Employee employee3 = new Employee("Ewa", "Sam", 31);
+
+employee1.AddScore(9);
+employee1.AddScore(6);
+employee1.AddScore(5);
+employee1.AddScore(7);
+employee1.AddScore(6);
+
+employee1.AddScore(9);
+employee1.AddScore(8);
+employee1.AddScore(7);
+employee1.AddScore(6);
+employee1.AddScore(4);
+
+employee1.AddScore(9);
+employee1.AddScore(6);
+employee1.AddScore(4);
+employee1.AddScore(8);
+employee1.AddScore(4);
+
+List<Employee> users = new List<Employee>()
 {
-    if (c == '0')
-    {
-        counter0++;
-    }
-    if (c =='1')
-    {
-        counter1++;
-    }
-    if (c == '2')
-    {
-        counter2++;
-    }
+employee1, employee2, employee3
 
-    if (c == '3')
-    {
-        counter3++;
-    }
+};
+var maxScore = users.Max(e => e.pointsOfEmployee);
+var maxScore2 = 0;
+Employee userMaxScore = null;
+foreach (var user in users)
+    NewMethod(maxScore, ref maxScore2, ref userMaxScore, user);
 
-    if (c == '4')
+static void NewMethod(int maxScore, ref int maxScore2, ref Employee userMaxScore, Employee user)
+{
+    if (user.pointsOfEmployee > maxScore)
     {
-        counter4++;
-    }
-    if (c == '5')
-    {
-        counter5++;
-    }
+        maxScore2 = user.pointsOfEmployee;
+        userMaxScore = user;
 
-    if (c == '6')
-    {
-        counter6++;
-    }
-    if (c == '7')
-    {
-        counter7++;
-    }
-    if (c == '8')
-    {
-        counter8++;
-    }
-    if (c == '9')
-    {
-        counter9++;
-    }
-    Console.WriteLine("0=>" + counter0);
-    Console.WriteLine("1=>" + counter1);
-    Console.WriteLine("2=>" + counter2);
-    Console.WriteLine("3=>" + counter3);
-    Console.WriteLine("4=>" + counter4);
-    Console.WriteLine("5=>" + counter5);
-    Console.WriteLine("6=>" + counter6);
-    Console.WriteLine("7=>" + counter7);
-    Console.WriteLine("8=>" + counter8);
-    Console.WriteLine("9=>" + counter9);
-   
 
+    }
+    Console.WriteLine($"Employee with max score is {userMaxScore.name},{userMaxScore.lastName},{userMaxScore.age} years old, his score is {maxScore2}");
+    Console.WriteLine($"{maxScore}");
 }
